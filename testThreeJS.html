@@ -117,6 +117,25 @@
 
 				var middle = new THREE.Vector3();
 
+				
+				var loader = new THREE.VTKLoader();
+				loader.load( "14. coronarySinusMesh.vtk", function ( geometry ) {
+
+					geometry.computeVertexNormals();
+					console.log(middle);
+					geometry.computeBoundingBox();
+					middle.x        = ( geometry.boundingBox.max.x + geometry.boundingBox.min.x ) / 2;
+					middle.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
+					middle.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
+					geometry.translate(-middle.x, -middle.y, -middle.z);
+
+					var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, side: THREE.DoubleSide } );
+					var cs = new THREE.Mesh( geometry, material );
+					cs.name = 'cs';
+					//cs.position.set( - 0.075, 0.005, 0 );
+					//cs.scale.multiplyScalar( 0.2 );
+					scene.add( cs );
+				} );
 
 				var loader1 = new THREE.VTKLoader();
 				loader1.load( '13. leftAndRightEpiMesh.vtk', function ( geometry ) {
@@ -131,37 +150,12 @@
 					//epi.position.set( - 0.025, 0, 0 );
 					//epi.scale.multiplyScalar( 0.01 );
 
-					//geometry = epicardium.geometry;
-					geometry.computeBoundingBox();
-					middle.x        = ( geometry.boundingBox.max.x + geometry.boundingBox.min.x ) / 2;
-					middle.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
-					middle.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
-					geometry.translate(-middle.x, -middle.y, -middle.z);
+					geometry.translate(-middle.x, -middle.y, -middle.z);					
 					
-					
-					scene.add( epicardium );
-					
+					scene.add( epicardium );					
 					
 				} );
-
 				
-				var loader = new THREE.VTKLoader();
-				loader.load( "14. coronarySinusMesh.vtk", function ( geometry ) {
-
-					geometry.computeVertexNormals();
-					console.log(middle);
-					geometry.translate(-middle.x, -middle.y, -middle.z);
-
-					var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, side: THREE.DoubleSide } );
-					var cs = new THREE.Mesh( geometry, material );
-					cs.name = 'cs';
-					//cs.position.set( - 0.075, 0.005, 0 );
-					//cs.scale.multiplyScalar( 0.2 );
-					scene.add( cs );
-					
-					
-
-				} );
 				var loader2 = new THREE.VTKLoader();
 				loader2.load( '15. leftCoronaryArteryMesh.vtk', function ( geometry ) {
 
