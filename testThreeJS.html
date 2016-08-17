@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - loaders - vtk loader</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000;
+				color: #fff;
+				margin: 0px;
+				overflow: hidden;
+			}
+			#info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+			}
+			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+			div.anatomyBox {
+				background-color: #000000;
+				width: 20%;
+				height: 63px;
+				margin-top: 1px;
+				float: right;
+				line-height: 63px;
+			}
+
+			div.anatomyBox span {
+				color: #ffffff;
+				font-size: 1.3em;
+				vertical-align: middle;
+				margin-left: 5px;
+				cursor: hand;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--
+		<div id="info">
+		<a href="http://threejs.org" target="_blank">three.js</a> -
+		vtk formats loader test<br />
+		Legacy vtk model from <a href="http://www.cc.gatech.edu/projects/large_models/" target="_blank">The GeorgiaTech Lagre Geometric Model Archive</a>,
+		</div>
+		-->
+		
+		<div class="anatomyBox">
+			<span onClick="toggleVisibility('lca');">
+				<input type="checkbox" id="lca_checkbox" checked>
+				<img src="green.png" style="vertical-align: middle"> LCA
+			</span>
+		</div>
+		
+		<div class="anatomyBox">
+		<span onClick="toggleVisibility('cs');"><input
+			type="checkbox" id="cs_checkbox" checked><img
+			src="green.png" style="vertical-align: middle"> Coronary Sinus</span>
+		</div>
+		
+		<script src='js/libs/inflate.min.js'></script>
+		<script src="js/three.js"></script>
+
+		<script src="js/controls/TrackballControls.js"></script>
+
+		<script src="js/loaders/VTKLoader.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container, stats;
+
+			var camera, controls, scene, renderer;
+
+			var cross;
+
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
+				camera.position.z = 0.2;
+				//camera.position.y = 150;
+
+				controls = new THREE.TrackballControls( camera );
+
+				controls.rotateSpeed = 5.0;
+				controls.zoomSpeed = 5;
+				controls.panSpeed = 2;
+
+				controls.noZoom = false;
+				controls.noPan = false;
+
+				controls.staticMoving = true;
+				controls.dynamicDampingFactor = 0.3;
+
+				scene = new THREE.Scene();
+				scene.add( camera );
+
+				// light
+
+				var dirLight = new THREE.DirectionalLight( 0xffffff );
+				dirLight.position.set( 200, 200, 1000 ).normalize();
+
+				camera.add( dirLight );
+				camera.add( dirLight.target );
+
+				var middle = new THREE.Vector3();
+
+
+				var loader1 = new THREE.VTKLoader();
+				loader1.load( '13. leftAndRightEpiMesh.vtk', function ( geometry ) {
+
+					geometry.computeVertexNormals();
+					//geometry.center();
+
+					var material = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.DoubleSide, wireframe: true, transparent: true } );
+					material.opacity = 0.5;
+					var epicardium = new THREE.Mesh( geometry, material );
+					epicardium.name = 'epicardium';
+					//epi.position.set( - 0.025, 0, 0 );
+					//epi.scale.multiplyScalar( 0.01 );
+
+					//geometry = epicardium.geometry;
+					geometry.computeBoundingBox();
+					middle.x        = ( geometry.boundingBox.max.x + geometry.boundingBox.min.x ) / 2;
+					middle.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
+					middle.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
+					geometry.translate(-middle.x, -middle.y, -middle.z);
+					
+					
+					scene.add( epicardium );
+					
+					
+				} );
+
+				
+				var loader = new THREE.VTKLoader();
+				loader.load( "14. coronarySinusMesh.vtk", function ( geometry ) {
+
+					geometry.computeVertexNormals();
+					console.log(middle);
+					geometry.translate(-middle.x, -middle.y, -middle.z);
+
+					var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, side: THREE.DoubleSide } );
+					var cs = new THREE.Mesh( geometry, material );
+					cs.name = 'cs';
+					//cs.position.set( - 0.075, 0.005, 0 );
+					//cs.scale.multiplyScalar( 0.2 );
+					scene.add( cs );
+					
+					
+
+				} );
+				var loader2 = new THREE.VTKLoader();
+				loader2.load( '15. leftCoronaryArteryMesh.vtk', function ( geometry ) {
+
+					geometry.computeVertexNormals();
+					console.log(middle);
+					geometry.translate(-middle.x, -middle.y, -middle.z);
+
+					var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
+					var lca = new THREE.Mesh( geometry, material );
+					lca.name = 'lca';
+					//lca.position.set( 0.025, 0, 0 );
+					//lca.scale.multiplyScalar( 0.01 );
+
+					scene.add( lca );
+
+				} );
+
+				var loader3 = new THREE.VTKLoader();
+				loader3.load( '11. leftEndoMesh.vtk', function ( geometry ) {
+
+					geometry.computeVertexNormals();
+					console.log(middle);
+					geometry.translate(-middle.x, -middle.y, -middle.z);
+
+					var material = new THREE.MeshLambertMaterial( { color: 0xff0000, side: THREE.DoubleSide } );
+					var left_endocardium = new THREE.Mesh( geometry, material );
+					left_endocardium.name = 'left_endocardium';
+					//left_endocardium.position.set( 0.075, 0, 0 );
+					//left_endocardium.scale.multiplyScalar( 0.01 );
+
+					scene.add( left_endocardium );
+
+				} );
+
+				// renderer
+
+				renderer = new THREE.WebGLRenderer( { antialias: false } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+				container.appendChild( renderer.domElement );
+
+				stats = new Stats();
+				container.appendChild( stats.dom );
+				
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+				window.addEventListener("load", onMeshesLoaded,false);
+				console.log(scene.children.length);
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				controls.handleResize();
+
+			}
+			
+			function onMeshesLoaded() {
+			console.log("dans le slot");
+			console.log(scene.children.length);
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				controls.update();
+				renderer.render( scene, camera );
+
+				stats.update();
+
+			}
+
+		</script>
+		
+		<script>
+			function toggleVisibility(objectname) {
+				console.log("hide show !!");
+				// retrieve scene
+				scene = eval('scene');
+				console.log(scene.children.length);
+				object = scene.getObjectByName(objectname);
+				// toggle visibility
+				object.visible = !object.visible;
+				
+				// update checkbox
+				document.getElementById(objectname + '_checkbox').checked = object.visible;
+			}
+		</script>
+
+	</body>
+</html>
