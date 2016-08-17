@@ -129,7 +129,7 @@
 					center.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
 					geometry.translate(-center.x, -center.y, -center.z);
 
-					var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, side: THREE.DoubleSide } );
+					var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
 					var cs = new THREE.Mesh( geometry, material );
 					cs.name = 'cs';
 					scene.add( cs );
@@ -175,7 +175,7 @@
 					geometry.translate(-center.x, -center.y, -center.z);
 
 					var material = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.DoubleSide, wireframe: true, transparent: true } );
-					material.opacity = 0.5;
+					material.opacity = 0.1;
 					var epicardium = new THREE.Mesh( geometry, material );
 					epicardium.name = 'epicardium';
 					
@@ -189,7 +189,7 @@
 					console.log(center);
 					geometry.translate(-center.x, -center.y, -center.z);
 
-					var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
+					var material = new THREE.MeshLambertMaterial( { color: 0xff0000, side: THREE.DoubleSide } );
 					var lca = new THREE.Mesh( geometry, material );
 					lca.name = 'lca';
 
@@ -203,7 +203,7 @@
 					console.log(center);
 					geometry.translate(-center.x, -center.y, -center.z);
 
-					var material = new THREE.MeshLambertMaterial( { color: 0xff0000, side: THREE.DoubleSide } );
+					var material = new THREE.MeshLambertMaterial( { color: 0x808080, side: THREE.DoubleSide } );
 					var left_endocardium = new THREE.Mesh( geometry, material );
 					left_endocardium.name = 'left_endocardium';
 
