@@ -53,14 +53,14 @@
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('lca');">
 				<input type="checkbox" id="lca_checkbox" checked>
-				<img src="green.png" style="vertical-align: middle"> LCA
+				<img src="icons/red.png" style="vertical-align: middle"> LCA
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 		<span onClick="toggleVisibility('cs');"><input
 			type="checkbox" id="cs_checkbox" checked><img
-			src="green.png" style="vertical-align: middle"> Coronary Sinus</span>
+			src="icons/blue.png" style="vertical-align: middle"> Coronary Sinus</span>
 		</div>
 		
 		<script src='js/libs/inflate.min.js'></script>
@@ -93,7 +93,7 @@
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
 				camera.position.z = 0.2;
 				//camera.position.y = 150;
-
+				console.log(camera.position);
 				controls = new THREE.TrackballControls( camera );
 
 				controls.rotateSpeed = 5.0;
@@ -119,7 +119,7 @@
 
 				
 				var loader = new THREE.VTKLoader();
-				loader.load( "14. coronarySinusMesh.vtk", function ( geometry ) {
+				loader.load( "meshes/14. coronarySinusMesh.vtk", function ( geometry ) {
 
 					geometry.computeVertexNormals();
 					console.log(center);
@@ -169,7 +169,7 @@
 			function onCenterCalculated() {
 				
 				var loader1 = new THREE.VTKLoader();
-				loader1.load( '13. leftAndRightEpiMesh.vtk', function ( geometry ) {
+				loader1.load( 'meshes/13. leftAndRightEpiMesh.vtk', function ( geometry ) {
 
 					geometry.computeVertexNormals();
 					geometry.translate(-center.x, -center.y, -center.z);
@@ -183,10 +183,9 @@
 				} );
 				
 				var loader2 = new THREE.VTKLoader();
-				loader2.load( '15. leftCoronaryArteryMesh.vtk', function ( geometry ) {
+				loader2.load( 'meshes/15. leftCoronaryArteryMesh.vtk', function ( geometry ) {
 
 					geometry.computeVertexNormals();
-					console.log(center);
 					geometry.translate(-center.x, -center.y, -center.z);
 
 					var material = new THREE.MeshLambertMaterial( { color: 0xff0000, side: THREE.DoubleSide } );
@@ -197,10 +196,9 @@
 				} );
 
 				var loader3 = new THREE.VTKLoader();
-				loader3.load( '11. leftEndoMesh.vtk', function ( geometry ) {
+				loader3.load( 'meshes/11. leftEndoMesh.vtk', function ( geometry ) {
 
 					geometry.computeVertexNormals();
-					console.log(center);
 					geometry.translate(-center.x, -center.y, -center.z);
 
 					var material = new THREE.MeshLambertMaterial( { color: 0x808080, side: THREE.DoubleSide } );
@@ -229,7 +227,7 @@
 
 				// retrieve scene
 				scene = eval('scene');
-				console.log(scene.children.length);
+				console.log(camera.position);
 				object = scene.getObjectByName(objectname);
 				
 				// toggle visibility
