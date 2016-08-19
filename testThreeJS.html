@@ -24,16 +24,16 @@
 			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
 			div.anatomyBox {
 				background-color: #000000;
-				width: 20%;
-				height: 63px;
+				width: 15%;
+				height: 40px;
 				margin-top: 1px;
 				float: right;
-				line-height: 63px;
+				line-height: 40px;
 			}
 
 			div.anatomyBox span {
 				color: #ffffff;
-				font-size: 1.3em;
+				font-size: 1em;
 				vertical-align: middle;
 				margin-left: 5px;
 				cursor: hand;
@@ -134,8 +134,15 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
-				camera.position.z = 0.2;
-				//camera.position.y = 150;
+				
+				camera.position.x = 192.829;
+				camera.position.y = -670.679;
+				camera.position.z = 824.235;
+				
+				camera.up.x = -0.76576;
+				camera.up.y = 0.383326;
+				camera.up.z = 0.516404;
+								
 				console.log(camera.position);
 				controls = new THREE.TrackballControls( camera );
 
@@ -196,7 +203,6 @@
 
 				window.addEventListener( 'resize', onWindowResize, false );
 				window.addEventListener('centerCalculated', onCenterCalculated,false);
-				console.log(scene.children.length);
 			}
 
 			function onWindowResize() {
