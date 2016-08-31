@@ -135,13 +135,49 @@
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
 				
-				camera.position.x = 192.829;
-				camera.position.y = -670.679;
-				camera.position.z = 824.235;
 				
-				camera.up.x = -0.76576;
-				camera.up.y = 0.383326;
-				camera.up.z = 0.516404;
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (xhttp.readyState == 4 && xhttp.status == 200) {
+						myFunction(xhttp);
+					}
+				};
+				
+				xhttp.open("GET", "meshes/mapping.xml", true);
+				xhttp.send();
+				
+				function myFunction(xml) {
+					var xmlDoc = xml.responseXML;
+					
+					var parameterList = xmlDoc.getElementsByTagName("navigator")[0].getElementsByTagName("parameter");
+
+					var cameraPositionIndex, cameraUpIndex;
+					for(i=0 ; i<parameterList.length ; i++)
+					{
+						if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Position")
+						{
+							cameraPositionIndex = i;
+						}
+						
+						else if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Up")
+						{
+							cameraUpIndex = i;
+						}
+					}
+					//setting camera position
+					cameraPosition = parameterList[cameraPositionIndex].getElementsByTagName("value")[0].textContent.split(" ");
+
+					camera.position.x = Number(cameraPosition[0]);
+					camera.position.y = Number(cameraPosition[1]);
+					camera.position.z = Number(cameraPosition[2]);
+					
+					//setting camera up
+					cameraUp = parameterList[cameraUpIndex].getElementsByTagName("value")[0].textContent.split(" ");
+
+					camera.up.x = Number(cameraUp[0]);
+					camera.up.y = Number(cameraUp[1]);
+					camera.up.z = Number(cameraUp[2]);
+				}
 								
 				console.log(camera.position);
 				controls = new THREE.TrackballControls( camera );
@@ -226,6 +262,7 @@
 				loadVTKMesh('meshes/29. WTYmmMesh.vtk', 'wtymm', 0xffff80, true, 0.42); //jaune
 			}
 
+			//default parameter not accepted by IE
 			function loadVTKMesh(aFile, aName, aColor, transparentON = false, anOpacity = 1.0, wireframeON = false)
 			{
 				var loader = new THREE.VTKLoader();
