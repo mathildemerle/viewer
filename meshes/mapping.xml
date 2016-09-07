@@ -1,0 +1,1533 @@
+<!DOCTYPE mapping.xml>
+<xml>
+ <layer id="0" filename="15. leftCoronaryArteryMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#FF0000</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="1" filename="12. leftVentricularEndoMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Distance</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#808080</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>2</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>6</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="2" filename="13. leftAndRightEpiMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>0.1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#FFFFFF</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>wireframe</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="3" filename="16. rightCoronaryArteryMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#FF0000</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="4" filename="20. hypodensityMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#800080</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="5" filename="14. coronarySinusMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#0000FF</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="6" filename="11. leftEndoMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#808080</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="7" filename="27. WTXmmMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#FF0000</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>Surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+ <layer id="8" filename="29. WTYmmMesh.vtk">
+  <navigators>
+   <navigator version="0.0.1" name="medVtkViewNavigator">
+    <parameters number="10">
+     <parameter>
+      <name>Orientation</name>
+      <group>
+       <parameter n="0">
+        <name>axial</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="1">
+        <name>coronal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="2">
+        <name>sagittal</name>
+        <type>Bool</type>
+        <value>false</value>
+       </parameter>
+       <parameter n="3">
+        <name>3d</name>
+        <type>Bool</type>
+        <value>true</value>
+       </parameter>
+      </group>
+     </parameter>
+     <parameter>
+      <name>Zoom</name>
+      <type>Double</type>
+      <value>1</value>
+     </parameter>
+     <parameter>
+      <name>Pan</name>
+      <type>Vector2D</type>
+      <value>0 0</value>
+     </parameter>
+     <parameter>
+      <name>Axes</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Ruler</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Annotations</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Scalar Bar</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Position</name>
+      <type>Vector3D</type>
+      <value>53.1895 -181.974 251.464</value>
+     </parameter>
+     <parameter>
+      <name>TimeLine</name>
+     </parameter>
+     <parameter>
+      <name>Camera Up</name>
+      <type>QVector3D</type>
+      <value>-0.76576 0.383326 0.516404</value>
+     </parameter>
+     <parameter>
+      <name>Camera Focal</name>
+      <type>QVector3D</type>
+      <value>22.3659 -124.829 166.277</value>
+     </parameter>
+     <parameter>
+      <name>Parallel Scale</name>
+      <type>double</type>
+      <value>225.621</value>
+     </parameter>
+     <parameter>
+      <name>Camera Position</name>
+      <type>QVector3D</type>
+      <value>192.829 -670.679 824.235</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="medVtkViewItkDataImageNavigator">
+    <parameters number="3">
+     <parameter>
+      <name>3D Mode</name>
+      <type>String</type>
+      <value>VR</value>
+     </parameter>
+     <parameter>
+      <name>Renderer</name>
+      <type>String</type>
+      <value>GPU</value>
+     </parameter>
+     <parameter>
+      <name>Cropping</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+   <navigator version="0.0.1" name="vtkDataMeshNavigator">
+    <parameters number="1">
+     <parameter>
+      <name>DepthPeeling</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+    </parameters>
+   </navigator>
+  </navigators>
+  <interactors>
+   <interactor version="0.0.1" name="vtkDataMeshInteractor">
+    <parameters number="9">
+     <parameter>
+      <name>Opacity</name>
+      <type>Double</type>
+      <value>0.42</value>
+     </parameter>
+     <parameter>
+      <name>LUT</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Attributes</name>
+      <type>String</type>
+      <value>Default</value>
+     </parameter>
+     <parameter>
+      <name>Edge Visible</name>
+      <type>Bool</type>
+      <value>false</value>
+     </parameter>
+     <parameter>
+      <name>Color</name>
+      <type>String</type>
+      <value>#FFFF80</value>
+     </parameter>
+     <parameter>
+      <name>Rendering</name>
+      <type>String</type>
+      <value>Surface</value>
+     </parameter>
+     <parameter>
+      <name>Visibility</name>
+      <type>Bool</type>
+      <value>true</value>
+     </parameter>
+     <parameter>
+      <name>Min</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+     <parameter>
+      <name>Max</name>
+      <type>Double</type>
+      <value>0</value>
+     </parameter>
+    </parameters>
+   </interactor>
+  </interactors>
+ </layer>
+</xml>
