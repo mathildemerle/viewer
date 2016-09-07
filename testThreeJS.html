@@ -108,21 +108,22 @@
 		<div class="anatomyBox">
 			<span onClick="moveCamera(225)">
 				<input type="checkbox" id="wtymm_checkbox" checked>
-				<img src="icons/yellow.png" style="vertical-align: middle"> ROA
+				ROA
 			</span>
 		</div>
 		<div class="anatomyBox">
 			<span onClick="moveCamera(180)">
 				<input type="checkbox" id="wtymm_checkbox" checked>
-				<img src="icons/yellow.png" style="vertical-align: middle"> RL
+				RL
 			</span>
 		</div>
 		<div class="anatomyBox">
 			<span onClick="moveCamera(90)">
 				<input type="checkbox" id="wtymm_checkbox" checked>
-				<img src="icons/yellow.png" style="vertical-align: middle"> PA
+				PA
 			</span>
 		</div>
+
 		
 		<script src='js/libs/inflate.min.js'></script>
 		<script src="js/three.js"></script>
@@ -243,12 +244,12 @@
 					center.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
 					center.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
 					geometry.translate(-center.x, -center.y, -center.z);
-					
+
 					var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
 					var cs = new THREE.Mesh( geometry, material );
 					cs.name = 'cs';
 					scene.add( cs );
-					
+
 					var event = new Event('centerCalculated');
 					window.dispatchEvent(event);
 				} );
