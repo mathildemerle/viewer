@@ -268,7 +268,7 @@
 				container.appendChild( stats.dom );
 
 				window.addEventListener( 'resize', onWindowResize, false );
-				window.addEventListener('centerCalculated', onCenterCalculated,false);
+				window.addEventListener('centerCalculated', onCenterCalculated, false);				
 			}
 
 			function onWindowResize() {
@@ -283,17 +283,17 @@
 			
 			function onCenterCalculated() {
 				
-				loadVTKMesh('meshes/11. leftEndoMesh.vtk', 'left_endocardium', 0x808080);
+				loadVTKMesh('meshes/11. leftEndoMesh.vtk', 'left_endocardium', 0x808080, false, 1.0, false);
 				loadVTKMesh('meshes/13. leftAndRightEpiMesh.vtk', 'epicardium', 0xffffff, true, 0.1, true);
-				loadVTKMesh('meshes/15. leftCoronaryArteryMesh.vtk', 'lca', 0xff0000);
-				loadVTKMesh('meshes/16. rightCoronaryArteryMesh.vtk', 'rca', 0xff0000);
-				loadVTKMesh('meshes/20. hypodensityMesh.vtk', 'hypodensity', 0x800080); //purple
-				loadVTKMesh('meshes/27. WTXmmMesh.vtk', 'wtxmm', 0xff0000);
-				loadVTKMesh('meshes/29. WTYmmMesh.vtk', 'wtymm', 0xffff80, true, 0.42); //yellow
+				loadVTKMesh('meshes/15. leftCoronaryArteryMesh.vtk', 'lca', 0xff0000, false, 1.0, false);
+				loadVTKMesh('meshes/16. rightCoronaryArteryMesh.vtk', 'rca', 0xff0000, false, 1.0, false);
+				loadVTKMesh('meshes/20. hypodensityMesh.vtk', 'hypodensity', 0x800080, false, 1.0, false); //purple
+				loadVTKMesh('meshes/27. WTXmmMesh.vtk', 'wtxmm', 0xff0000, false, 1.0, false);
+				loadVTKMesh('meshes/29. WTYmmMesh.vtk', 'wtymm', 0xffff80, true, 0.42, false); //yellow
 			}
 
-			//default parameter not accepted by IE
-			function loadVTKMesh(aFile, aName, aColor, transparentON = false, anOpacity = 1.0, wireframeON = false)
+			//default parameter not accepted by IE and Safari
+			function loadVTKMesh(aFile, aName, aColor, transparentON, anOpacity, wireframeON)
 			{
 				var loader = new THREE.VTKLoader();
 				loader.load( aFile, function ( geometry ) {
