@@ -17,19 +17,34 @@
 				position: absolute;
 				top: 10px;
 				width: 100%;
-				text-align: center;
+                               text-align: center;
 				z-index: 100;
 				display:block;
 			}
 			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
-			div.anatomyBox {
-				background-color: #000000;
-				width: 15%;
-				height: 40px;
-				margin-top: 1px;
-				float: right;
-				line-height: 40px;
-			}
+
+                        /* Can be any width and height */
+                        .block {
+                        height:500px;
+                        text-align: left;
+                        line-height: 40px;
+                        }
+
+                        /* The ghost, nudged to maintain perfect centering */
+                        .block:before {
+                        content:'';
+                        display: inline-block;
+                        height: 100%;
+                        vertical-align: left;
+                        margin-right: -0.25em; /* Adjusts for spacing */
+                        }
+
+                        /* The element to be centered, can be any width or height */
+                        .centered {
+                        display: inline-block;
+                        vertical-align: left;
+                        width: 300px;
+                        }
 
 			div.anatomyBox span {
 				color: #ffffff;
@@ -49,60 +64,62 @@
 		Legacy vtk model from <a href="http://www.cc.gatech.edu/projects/large_models/" target="_blank">The GeorgiaTech Lagre Geometric Model Archive</a>,
 		</div>
 		-->
-		
+                <div class="block">
+                    <div class="centered">
+
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('left_endocardium');">
 				<input type="checkbox" id="left_endocardium_checkbox" checked>
-				<img src="icons/grey.png" style="vertical-align: middle"> Left Endocardium
+                               <img src="icons/grey.png" style="vertical-align: middle"> Left Endocardium
 			</span>
-		</div>
+                </div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('epicardium');">
 				<input type="checkbox" id="epicardium_checkbox" checked>
-				<img src="icons/white.png" style="vertical-align: middle"> Epicardium
+                               <img src="icons/white.png" style="vertical-align: middle"> Epicardium
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('lca');">
 				<input type="checkbox" id="lca_checkbox" checked>
-				<img src="icons/red.png" style="vertical-align: middle"> LCA
+                               <img src="icons/red.png" style="vertical-align: middle"> LCA
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('rca');">
 				<input type="checkbox" id="rca_checkbox" checked>
-				<img src="icons/red.png" style="vertical-align: middle"> RCA
+                               <img src="icons/red.png" style="vertical-align: middle"> RCA
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('cs');">
 				<input	type="checkbox" id="cs_checkbox" checked>
-				<img src="icons/blue.png" style="vertical-align: middle"> Coronary Sinus
+                               <img src="icons/blue.png" style="vertical-align: middle"> Coronary Sinus
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('hypodensity');">
 				<input type="checkbox" id="hypodensity_checkbox" checked>
-				<img src="icons/purple.png" style="vertical-align: middle"> Hypodensity
+                               <img src="icons/purple.png" style="vertical-align: middle"> Hypodensity
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('wtxmm');">
 				<input type="checkbox" id="wtxmm_checkbox" checked>
-				<img src="icons/red.png" style="vertical-align: middle"> WTXmm
+                               <img src="icons/red.png" style="vertical-align: middle"> WTXmm
 			</span>
 		</div>
 		
 		<div class="anatomyBox">
 			<span onClick="toggleVisibility('wtymm');">
 				<input type="checkbox" id="wtymm_checkbox" checked>
-				<img src="icons/yellow.png" style="vertical-align: middle"> WTYmm
+                               <img src="icons/yellow.png" style="vertical-align: middle"> WTYmm
 			</span>
 		</div>
 		<div class="anatomyBox">
@@ -123,8 +140,9 @@
 				PA
 			</span>
 		</div>
+                </div>
+            </div>
 
-		
 		<script src='js/libs/inflate.min.js'></script>
 		<script src="js/three.js"></script>
 
