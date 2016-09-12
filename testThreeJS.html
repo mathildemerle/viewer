@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>three.js webgl - loaders - vtk loader</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				font-family: sans-serif;
-				background-color: #000;
-				color: #fff;
-				margin: 0px;
-				overflow: hidden;
-			}
-			#info {
-				color: #fff;
-				position: absolute;
-				top: 10px;
-				width: 100%;
+        <head>
+                <title>three.js webgl - loaders - vtk loader</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+                <style>
+                        body {
+                                font-family: sans-serif;
+                                background-color: #000;
+                                color: #fff;
+                                margin: 0px;
+                                overflow: hidden;
+                                display: inline;
+                        }
+                        /*#info {
+                                color: #fff;
+                                position: absolute;
+                                top: 10px;
+                                width: 100%;
                                text-align: center;
-				z-index: 100;
-				display:block;
-			}
-			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+                                z-index: 100;
+                                display:block;
+                        }
+                        #info a, */.button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
 
-                        /* Can be any width and height */
                         .block {
-                        height:500px;
                         text-align: left;
                         line-height: 40px;
+                        position:absolute;
+                        top: 0%;
+                        left: 0%;
                         }
 
                         /* The ghost, nudged to maintain perfect centering */
@@ -39,339 +41,338 @@
                         margin-right: -0.25em; /* Adjusts for spacing */
                         }
 
-                        /* The element to be centered, can be any width or height */
-                        .centered {
-                        display: inline-block;
-                        vertical-align: left;
-                        width: 300px;
+                        div.anatomyBox span {
+                                color: #ffffff;
+                                font-size: 1em;
+                                vertical-align: middle;
+                                margin-left: 5px;
+                                cursor: hand;
                         }
 
-			div.anatomyBox span {
-				color: #ffffff;
-				font-size: 1em;
-				vertical-align: middle;
-				margin-left: 5px;
-				cursor: hand;
-			}
-		</style>
-	</head>
-
-	<body>
-		<!--
-		<div id="info">
-		<a href="http://threejs.org" target="_blank">three.js</a> -
-		vtk formats loader test<br />
-		Legacy vtk model from <a href="http://www.cc.gatech.edu/projects/large_models/" target="_blank">The GeorgiaTech Lagre Geometric Model Archive</a>,
-		</div>
-		-->
-                <div class="block">
-                    <div class="centered">
-
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('left_endocardium');">
-				<input type="checkbox" id="left_endocardium_checkbox" checked>
-                               <img src="icons/grey.png" style="vertical-align: middle"> Left Endocardium
-			</span>
+                        .scene {
+                        position:absolute;
+                        top: 0%;
+                        }
+                </style>
+        </head>
+        <body>
+                <!--
+                <div id="info">
+                <a href="http://threejs.org" target="_blank">three.js</a> -
+                vtk formats loader test<br />
+                Legacy vtk model from <a href="http://www.cc.gatech.edu/projects/large_models/" target="_blank">The GeorgiaTech Lagre Geometric Model Archive</a>,
                 </div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('epicardium');">
-				<input type="checkbox" id="epicardium_checkbox" checked>
+                -->
+
+        <div id="whole_container">
+
+           <div class="block">
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('left_endocardium');">
+                                <input type="checkbox" id="left_endocardium_checkbox" checked>
+                               <img src="icons/grey.png" style="vertical-align: middle"> Left Endocardium
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('epicardium');">
+                                <input type="checkbox" id="epicardium_checkbox" checked>
                                <img src="icons/white.png" style="vertical-align: middle"> Epicardium
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('lca');">
-				<input type="checkbox" id="lca_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('lca');">
+                                <input type="checkbox" id="lca_checkbox" checked>
                                <img src="icons/red.png" style="vertical-align: middle"> LCA
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('rca');">
-				<input type="checkbox" id="rca_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('rca');">
+                                <input type="checkbox" id="rca_checkbox" checked>
                                <img src="icons/red.png" style="vertical-align: middle"> RCA
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('cs');">
-				<input	type="checkbox" id="cs_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('cs');">
+                                <input	type="checkbox" id="cs_checkbox" checked>
                                <img src="icons/blue.png" style="vertical-align: middle"> Coronary Sinus
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('hypodensity');">
-				<input type="checkbox" id="hypodensity_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('hypodensity');">
+                                <input type="checkbox" id="hypodensity_checkbox" checked>
                                <img src="icons/purple.png" style="vertical-align: middle"> Hypodensity
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('wtxmm');">
-				<input type="checkbox" id="wtxmm_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('wtxmm');">
+                                <input type="checkbox" id="wtxmm_checkbox" checked>
                                <img src="icons/red.png" style="vertical-align: middle"> WTXmm
-			</span>
-		</div>
-		
-		<div class="anatomyBox">
-			<span onClick="toggleVisibility('wtymm');">
-				<input type="checkbox" id="wtymm_checkbox" checked>
+                        </span>
+                </div>
+
+                <div class="anatomyBox">
+                        <span onClick="toggleVisibility('wtymm');">
+                                <input type="checkbox" id="wtymm_checkbox" checked>
                                <img src="icons/yellow.png" style="vertical-align: middle"> WTYmm
-			</span>
-		</div>
-		<div class="anatomyBox">
-			<span onClick="moveCamera(225)">
-				<input type="checkbox" id="wtymm_checkbox" checked>
-				ROA
-			</span>
-		</div>
-		<div class="anatomyBox">
-			<span onClick="moveCamera(180)">
-				<input type="checkbox" id="wtymm_checkbox" checked>
-				RL
-			</span>
-		</div>
-		<div class="anatomyBox">
-			<span onClick="moveCamera(90)">
-				<input type="checkbox" id="wtymm_checkbox" checked>
-				PA
-			</span>
-		</div>
+                        </span>
+                </div>
+                <div class="anatomyBox">
+                        <span onClick="moveCamera(225)">
+                                <input type="checkbox" id="wtymm_checkbox" checked>
+                                ROA
+                        </span>
+                </div>
+                <div class="anatomyBox">
+                        <span onClick="moveCamera(180)">
+                                <input type="checkbox" id="wtymm_checkbox" checked>
+                                RL
+                        </span>
+                </div>
+                <div class="anatomyBox">
+                        <span onClick="moveCamera(90)">
+                                <input type="checkbox" id="wtymm_checkbox" checked>
+                                PA
+                        </span>
                 </div>
             </div>
 
-		<script src='js/libs/inflate.min.js'></script>
-		<script src="js/three.js"></script>
+            <div class="scene">
+                <script src='js/libs/inflate.min.js'></script>
+                <script src="js/three.js"></script>
 
-		<script src="js/controls/TrackballControls.js"></script>
+                <script src="js/controls/TrackballControls.js"></script>
 
-		<script src="js/loaders/VTKLoader.js"></script>
+                <script src="js/loaders/VTKLoader.js"></script>
 
-		<script src="js/Detector.js"></script>
-		<script src="js/libs/stats.min.js"></script>
+                <script src="js/Detector.js"></script>
+                <script src="js/libs/stats.min.js"></script>
+                <script>
 
-		<script>
+                        if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
-			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+                        var container, stats;
 
-			var container, stats;
+                        var camera, controls, scene, renderer;
 
-			var camera, controls, scene, renderer;
+                        var cross;
 
-			var cross;
-			
-			var center = new THREE.Vector3();
-			
-			var cameraFocal = new THREE.Vector3();
+                        var center = new THREE.Vector3();
 
-			init();
-			animate();
+                        var cameraFocal = new THREE.Vector3();
 
-			function init() {
+                        init();
+                        animate();
 
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
-				
-				
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-					if (xhttp.readyState == 4 && xhttp.status == 200) {
-						myFunction(xhttp);
-					}
-				};
-				
-				xhttp.open("GET", "meshes/mapping.xml", true);
-				xhttp.send();
-				
-				function myFunction(xml) {
-					var xmlDoc = xml.responseXML;
-					
-					var parameterList = xmlDoc.getElementsByTagName("navigator")[0].getElementsByTagName("parameter");
+                        function init() {
 
-					var cameraPositionIndex, cameraUpIndex, cameraFocalIndex;
-					for(i=0 ; i<parameterList.length ; i++)
-					{
-						if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Position")
-						{
-							cameraPositionIndex = i;
-						}
-						
-						else if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Up")
-						{
-							cameraUpIndex = i;
-						}
-						
-						else if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Focal")
-						{
-							cameraFocalIndex = i;
-						}
-					}
-					//setting camera position
-					var cameraPositionString = parameterList[cameraPositionIndex].getElementsByTagName("value")[0].textContent.split(" ");
+                                camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
 
-					camera.position.x = Number(cameraPositionString[0]);
-					camera.position.y = Number(cameraPositionString[1]);
-					camera.position.z = Number(cameraPositionString[2]);
-					
-					//setting camera up
-					var cameraUpString = parameterList[cameraUpIndex].getElementsByTagName("value")[0].textContent.split(" ");
 
-					camera.up.x = Number(cameraUpString[0]);
-					camera.up.y = Number(cameraUpString[1]);
-					camera.up.z = Number(cameraUpString[2]);
-					
-					//getting camera focal
-					var cameraFocalString = parameterList[cameraFocalIndex].getElementsByTagName("value")[0].textContent.split(" ");
-					cameraFocal.x = Number(cameraFocalString[0]);
-					cameraFocal.y = Number(cameraFocalString[1]);
-					cameraFocal.z = Number(cameraFocalString[2]);
-				}
-								
-				controls = new THREE.TrackballControls( camera );
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.onreadystatechange = function() {
+                                        if (xhttp.readyState == 4 && xhttp.status == 200) {
+                                                myFunction(xhttp);
+                                        }
+                                };
 
-				controls.rotateSpeed = 5.0;
-				controls.zoomSpeed = 5;
-				controls.panSpeed = 2;
+                                xhttp.open("GET", "meshes/mapping.xml", true);
+                                xhttp.send();
 
-				controls.noZoom = false;
-				controls.noPan = false;
+                                function myFunction(xml) {
+                                        var xmlDoc = xml.responseXML;
 
-				controls.staticMoving = true;
-				controls.dynamicDampingFactor = 0.3;
+                                        var parameterList = xmlDoc.getElementsByTagName("navigator")[0].getElementsByTagName("parameter");
 
-				scene = new THREE.Scene();
-				scene.add( camera );
+                                        var cameraPositionIndex, cameraUpIndex, cameraFocalIndex;
+                                        for(i=0 ; i<parameterList.length ; i++)
+                                        {
+                                                if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Position")
+                                                {
+                                                        cameraPositionIndex = i;
+                                                }
 
-				// light
+                                                else if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Up")
+                                                {
+                                                        cameraUpIndex = i;
+                                                }
 
-				var dirLight = new THREE.DirectionalLight( 0xffffff );
-				dirLight.position.set( 200, 200, 1000 ).normalize();
+                                                else if(parameterList[i].getElementsByTagName("name")[0].textContent == "Camera Focal")
+                                                {
+                                                        cameraFocalIndex = i;
+                                                }
+                                        }
+                                        //setting camera position
+                                        var cameraPositionString = parameterList[cameraPositionIndex].getElementsByTagName("value")[0].textContent.split(" ");
 
-				camera.add( dirLight );
-				camera.add( dirLight.target );
+                                        camera.position.x = Number(cameraPositionString[0]);
+                                        camera.position.y = Number(cameraPositionString[1]);
+                                        camera.position.z = Number(cameraPositionString[2]);
 
-				
-				var loader = new THREE.VTKLoader();
-				loader.load( "meshes/14. coronarySinusMesh.vtk", function ( geometry ) {
+                                        //setting camera up
+                                        var cameraUpString = parameterList[cameraUpIndex].getElementsByTagName("value")[0].textContent.split(" ");
 
-					geometry.computeVertexNormals();
-					geometry.computeBoundingBox();
-					center.x        = ( geometry.boundingBox.max.x + geometry.boundingBox.min.x ) / 2;
-					center.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
-					center.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
-					geometry.translate(-center.x, -center.y, -center.z);
+                                        camera.up.x = Number(cameraUpString[0]);
+                                        camera.up.y = Number(cameraUpString[1]);
+                                        camera.up.z = Number(cameraUpString[2]);
 
-					var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
-					var cs = new THREE.Mesh( geometry, material );
-					cs.name = 'cs';
-					scene.add( cs );
+                                        //getting camera focal
+                                        var cameraFocalString = parameterList[cameraFocalIndex].getElementsByTagName("value")[0].textContent.split(" ");
+                                        cameraFocal.x = Number(cameraFocalString[0]);
+                                        cameraFocal.y = Number(cameraFocalString[1]);
+                                        cameraFocal.z = Number(cameraFocalString[2]);
+                                }
 
-					var event = new Event('centerCalculated');
-					window.dispatchEvent(event);
-				} );
+                                controls = new THREE.TrackballControls( camera );
 
-				// renderer
+                                controls.rotateSpeed = 5.0;
+                                controls.zoomSpeed = 5;
+                                controls.panSpeed = 2;
 
-				renderer = new THREE.WebGLRenderer( { antialias: false } );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+                                controls.noZoom = false;
+                                controls.noPan = false;
 
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
-				container.appendChild( renderer.domElement );
+                                controls.staticMoving = true;
+                                controls.dynamicDampingFactor = 0.3;
 
-				stats = new Stats();
-				container.appendChild( stats.dom );
+                                scene = new THREE.Scene();
+                                scene.add( camera );
 
-				window.addEventListener( 'resize', onWindowResize, false );
-				window.addEventListener('centerCalculated', onCenterCalculated, false);				
-			}
+                                // light
 
-			function onWindowResize() {
+                                var dirLight = new THREE.DirectionalLight( 0xffffff );
+                                dirLight.position.set( 200, 200, 1000 ).normalize();
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+                                camera.add( dirLight );
+                                camera.add( dirLight.target );
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
 
-				controls.handleResize();
-			}
-			
-			function onCenterCalculated() {
-				
-				loadVTKMesh('meshes/11. leftEndoMesh.vtk', 'left_endocardium', 0x808080, false, 1.0, false);
-				loadVTKMesh('meshes/13. leftAndRightEpiMesh.vtk', 'epicardium', 0xffffff, true, 0.1, true);
-				loadVTKMesh('meshes/15. leftCoronaryArteryMesh.vtk', 'lca', 0xff0000, false, 1.0, false);
-				loadVTKMesh('meshes/16. rightCoronaryArteryMesh.vtk', 'rca', 0xff0000, false, 1.0, false);
-				loadVTKMesh('meshes/20. hypodensityMesh.vtk', 'hypodensity', 0x800080, false, 1.0, false); //purple
-				loadVTKMesh('meshes/27. WTXmmMesh.vtk', 'wtxmm', 0xff0000, false, 1.0, false);
-				loadVTKMesh('meshes/29. WTYmmMesh.vtk', 'wtymm', 0xffff80, true, 0.42, false); //yellow
-			}
+                                var loader = new THREE.VTKLoader();
+                                loader.load( "meshes/14. coronarySinusMesh.vtk", function ( geometry ) {
 
-			//default parameter not accepted by IE and Safari
-			function loadVTKMesh(aFile, aName, aColor, transparentON, anOpacity, wireframeON)
-			{
-				var loader = new THREE.VTKLoader();
-				loader.load( aFile, function ( geometry ) {
+                                        geometry.computeVertexNormals();
+                                        geometry.computeBoundingBox();
+                                        center.x        = ( geometry.boundingBox.max.x + geometry.boundingBox.min.x ) / 2;
+                                        center.y        = ( geometry.boundingBox.max.y + geometry.boundingBox.min.y ) / 2;
+                                        center.z        = ( geometry.boundingBox.max.z + geometry.boundingBox.min.z ) / 2;
+                                        geometry.translate(-center.x, -center.y, -center.z);
 
-					geometry.computeVertexNormals();
-					geometry.translate(-center.x, -center.y, -center.z);
+                                        var material = new THREE.MeshLambertMaterial( { color: 0x0000ff, side: THREE.DoubleSide } );
+                                        var cs = new THREE.Mesh( geometry, material );
+                                        cs.name = 'cs';
+                                        scene.add( cs );
 
-					var material = new THREE.MeshLambertMaterial( { color: aColor, side: THREE.DoubleSide, transparent: transparentON, wireframe: wireframeON} );
-					material.opacity = anOpacity;
-					var mesh = new THREE.Mesh( geometry, material );
-					mesh.name = aName;
+                                        var event = new Event('centerCalculated');
+                                        window.dispatchEvent(event);
+                                } );
 
-					scene.add( mesh );
-				} );
-			}
-			
-			function animate() {
+                                // renderer
 
-				requestAnimationFrame( animate );
+                                renderer = new THREE.WebGLRenderer( { antialias: false } );
+                                renderer.setPixelRatio( window.devicePixelRatio );
+                                renderer.setSize( window.innerWidth, window.innerHeight);
 
-				controls.update();
-				renderer.render( scene, camera );
+                                container = document.createElement( 'div' );
+                                document.body.appendChild( container );
+                                container.appendChild( renderer.domElement );
 
-				stats.update();
-			}
+                                stats = new Stats();
+                                container.appendChild( stats.dom );
 
-		</script>
-		
-		<script>
-			function toggleVisibility(objectname) {
+                                window.addEventListener( 'resize', onWindowResize, false );
+                                window.addEventListener('centerCalculated', onCenterCalculated,false);
+                        }
 
-				// retrieve scene
-				scene = eval('scene');
-				object = scene.getObjectByName(objectname);
-				
-				// toggle visibility
-				object.visible = !object.visible;
-				
-				// update checkbox
-				document.getElementById(objectname + '_checkbox').checked = object.visible;
-			}
-		</script>
+                        function onWindowResize() {
 
-		<script>
-			function moveCamera(angle) {
-				
-				var dx = Math.pow(camera.position.x - cameraFocal.x, 2);
-				var dy = Math.pow(camera.position.y - cameraFocal.y, 2);
-				var dz = Math.pow(camera.position.z - cameraFocal.z, 2);
+                                camera.aspect = window.innerWidth / window.innerHeight;
+                                camera.updateProjectionMatrix();
 
-				var distCamObj = Math.sqrt(dx + dy + dz);
-				
-				camera.position.x = cameraFocal.x + distCamObj*Math.cos(angle*Math.PI/180);
-				camera.position.y = cameraFocal.y + distCamObj*Math.sin(angle*Math.PI/180);
-				camera.position.z = cameraFocal.z;
-				
-				camera.up.x = 0;
-				camera.up.y = 0;
-				camera.up.z = 1;
-			}
-		</script>
-	</body>
+                                renderer.setSize( window.innerWidth, window.innerHeight );
+
+                                controls.handleResize();
+                        }
+
+                        function onCenterCalculated() {
+
+                                loadVTKMesh('meshes/11. leftEndoMesh.vtk', 'left_endocardium', 0x808080);
+                                loadVTKMesh('meshes/13. leftAndRightEpiMesh.vtk', 'epicardium', 0xffffff, true, 0.1, true);
+                                loadVTKMesh('meshes/15. leftCoronaryArteryMesh.vtk', 'lca', 0xff0000);
+                                loadVTKMesh('meshes/16. rightCoronaryArteryMesh.vtk', 'rca', 0xff0000);
+                                loadVTKMesh('meshes/20. hypodensityMesh.vtk', 'hypodensity', 0x800080); //purple
+                                loadVTKMesh('meshes/27. WTXmmMesh.vtk', 'wtxmm', 0xff0000);
+                                loadVTKMesh('meshes/29. WTYmmMesh.vtk', 'wtymm', 0xffff80, true, 0.42); //yellow
+                        }
+
+                        //default parameter not accepted by IE
+                        function loadVTKMesh(aFile, aName, aColor, transparentON = false, anOpacity = 1.0, wireframeON = false)
+                        {
+                                var loader = new THREE.VTKLoader();
+                                loader.load( aFile, function ( geometry ) {
+
+                                        geometry.computeVertexNormals();
+                                        geometry.translate(-center.x, -center.y, -center.z);
+
+                                        var material = new THREE.MeshLambertMaterial( { color: aColor, side: THREE.DoubleSide, transparent: transparentON, wireframe: wireframeON} );
+                                        material.opacity = anOpacity;
+                                        var mesh = new THREE.Mesh( geometry, material );
+                                        mesh.name = aName;
+
+                                        scene.add( mesh );
+                                } );
+                        }
+
+                        function animate() {
+
+                                requestAnimationFrame( animate );
+
+                                controls.update();
+                                renderer.render( scene, camera );
+
+                                stats.update();
+                        }
+
+                </script>
+
+                <script>
+                        function toggleVisibility(objectname) {
+
+                                // retrieve scene
+                                scene = eval('scene');
+                                object = scene.getObjectByName(objectname);
+
+                                // toggle visibility
+                                object.visible = !object.visible;
+
+                                // update checkbox
+                                document.getElementById(objectname + '_checkbox').checked = object.visible;
+                        }
+                </script>
+
+                <script>
+                        function moveCamera(angle) {
+
+                                var dx = Math.pow(camera.position.x - cameraFocal.x, 2);
+                                var dy = Math.pow(camera.position.y - cameraFocal.y, 2);
+                                var dz = Math.pow(camera.position.z - cameraFocal.z, 2);
+
+                                var distCamObj = Math.sqrt(dx + dy + dz);
+
+                                camera.position.x = cameraFocal.x + distCamObj*Math.cos(angle*Math.PI/180);
+                                camera.position.y = cameraFocal.y + distCamObj*Math.sin(angle*Math.PI/180);
+                                camera.position.z = cameraFocal.z;
+
+                                camera.up.x = 0;
+                                camera.up.y = 0;
+                                camera.up.z = 1;
+                        }
+                </script>
+                </div>
+                </div>
+        </body>
 </html>
